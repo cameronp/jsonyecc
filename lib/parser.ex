@@ -13,7 +13,6 @@ defmodule Parser do
   end
 
   def complete_parse({:ok, ast}), do: ast
-  def complete_parse({:error, {line, _, message}}), do: {:error, message |> Enum.join}
-
+  def complete_parse({:error, {line, _, message}}), do: {:error, ["Line: #{line} "] ++ message |> Enum.join}
 
 end
