@@ -1,6 +1,6 @@
 # Jsonyecc
 
-**TODO: Add description**
+Don't use this for anything real.  This exists purely to illustrate how to use leex and yecc.
 
 ## Installation
 
