@@ -1,0 +1,2 @@
+defmodule Jsonyecc do
+end
