@@ -47,5 +47,35 @@ defmodule ParserTest do
     assert(map(result, fn {_, _, val} -> val end) == [nil])
   end
 
+  test "parses array" do
+    result = Parser.parse(~s([1, 2, 3]))
+    assert result == [1,2,3]
+  end
+
+  test "parses array of arrays" do
+    result = Parser.parse(~s([1, [2, 3]]))
+    assert result == [1,[2,3]]
+  end
+
+  test "parses empty array" do
+    result = Parser.parse(~s([]))
+    assert result == []
+  end
+
+  test "parses object" do
+    result = Parser.parse(~s({"foo" : 1, "bar" : 2}))
+    assert result == {:object,[{"foo", 1}, {"bar", 2}]}
+  end
+
+  test "parses empty object" do
+    result = Parser.parse(~s({}))
+    assert result == {:object, []}
+  end
+
+  test "parses nested objs" do
+    result = Parser.parse(~s({"foo" : {"bar": 1}}))
+    assert result == {:object, [{"foo", {:object, [{"bar", 1}]}}]}
+  end
+
 
 end
