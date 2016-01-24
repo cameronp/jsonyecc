@@ -6,7 +6,7 @@ list list_items.
 Terminals
 int float '[' ']'.
 
-Rootsymbol value.
+Rootsymbol document.
 
 
 document -> values : '$1'.
